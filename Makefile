@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/01/31 17:40:09 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/01/31 18:08:42 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ LIB_DIRECTORY			:= ./libs/
 LIBFT					:= $(LIBFT_DIRECTORY)libft.a
 LIBFT_DIRECTORY			:= $(LIB_DIRECTORY)libft/
 
-LIBPRINTF				:= $(LIBPRINTF_DIRECTORY)libftprintf.a
-LIBPRINTF_DIRECTORY		:= $(LIB_DIRECTORY)ftprintf/
+LIBPRINTF				:= $(LIBPRINTF_DIRECTORY)libftprintf.a # /libs/libftprinf/libftprintf.a
+LIBPRINTF_DIRECTORY		:= $(LIB_DIRECTORY)ftprintf/ #/libs/ftprintf
 
 SOURCES_DIRECTORY		:= ./srcs/
 
@@ -58,15 +58,17 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@echo "$(NAME): Creating $(LIBFT)..."
+	echo compilating libft
 	$(MAKE) -sC $(LIBFT_DIRECTORY)
+	cp libs/libft/libft.a .
 
 $(LIBPRINTF):
 	@echo "$(NAME): Creating $(LIBPRINTF)..."
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY)
+	cp libs/ftprintf/libftprintf.a .
 
-$(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS) $(HEADER_FILES)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIBRARIES) $(INCLUDES) -o $(NAME)
+$(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -Llibs/ftprintf -lftprintf -Llibs/libft -lft -o $(NAME)
 
 clean:
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY) clean
@@ -76,4 +78,6 @@ clean:
 fclean: clean
 	$(MAKE) -sC $(LIBFT_DIRECTORY) clean
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY) clean
+	rm -f libft.a
+	rm -f libftprinf.a
 	rm -f $(NAME)

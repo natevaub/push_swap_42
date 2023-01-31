@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/01/31 17:39:50 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:10:46 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int main()
 {
-	ft_putstr("test");
+	ft_putstr("test\n");
+	ft_printf("Hello World\n");
 }
