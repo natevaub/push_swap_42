@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/01/31 17:05:09 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/01/31 17:40:09 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,11 +59,11 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 
 $(LIBFT):
 	@echo "$(NAME): Creating $(LIBFT)..."
-	@$(MAKE) -sC $(LIBFT_DIRECTORY)
+	$(MAKE) -sC $(LIBFT_DIRECTORY)
 
 $(LIBPRINTF):
 	@echo "$(NAME): Creating $(LIBPRINTF)..."
-	@$(MAKE) -sC $(LIBPRINTF_DIRECTORY)
+	$(MAKE) -sC $(LIBPRINTF_DIRECTORY)
 
 $(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS) $(HEADER_FILES)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIBRARIES) $(INCLUDES) -o $(NAME)
