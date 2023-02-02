@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/01/31 18:08:42 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/02/02 19:00:52 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,9 @@ LIBPRINTF_DIRECTORY		:= $(LIB_DIRECTORY)ftprintf/ #/libs/ftprintf
 
 SOURCES_DIRECTORY		:= ./srcs/
 
-SOURCES_LIST			:= main.c				\
+SOURCES_LIST			:=	main.c				\
+							stack-operations.c	\
+
 
 OBJECTS_DIRECTORY		:= objs/
 OBJECTS_LIST			:= $(patsubst %.c, %.o, $(SOURCES_LIST))

@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/01/31 18:41:26 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:02:01 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,17 @@
 #include "libs/ftprintf/ft_printf.h"
 
 /* Structs */
-typedef struct s_node {
-	int data;
-	struct s_node *next;
-} t_node;
+typedef struct s_stack {
+	int value;
+	struct node *next;
+}	t_stack;
 
 /* Fonctions */
-int main();
+
+t_stack	*insert_at_tail(t_stack *head, int new_value);
+t_stack	*insert_at_head(t_stack *head, int new_value);
+void	print_list(t_stack *head);
+int		main(int ac, char **av);
 
 
 #endif
