@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   linked-list-utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/08 19:28:40 by nvaubien         ###   ########.fr       */
+/*   Created: 2023/02/08 18:58:28 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/02/08 19:30:33 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int main(int ac, char **av)
+int find_duplicate(t_stack *node)
 {
-	t_stack *top;
-	top = NULL;
-	int i = 1;
-	// ft_printf("Number of arguments %d\n", ac);
-	while (i <= ac - 1)
+	t_stack *pholder;
+	t_stack *test;
+	test = node;
+	pholder = node->next;
+	if (node == NULL) 
+		return (0);
+	else
 	{
-		top = insert_at_tail(top, ft_atoi(av[i]));
-		find_duplicate(top);
-		i++;
+		while (pholder != NULL)
+		{
+			if (test->value == pholder->value)
+			{
+				return (1);
+			}
+			printf("pholder = %d\n", pholder->value);
+			pholder = pholder->next;
+		}
+		test->next;
+		printf("test = %d\n", pholder->value);
 	}
-	print_list(top);
+	return (0);
 }

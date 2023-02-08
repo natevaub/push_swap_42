@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/02/02 19:00:52 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/02/08 19:18:14 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ SOURCES_DIRECTORY		:= ./srcs/
 
 SOURCES_LIST			:=	main.c				\
 							stack-operations.c	\
+							error-management.c	\
+							linked-list-utils.c	\
+
 
 
 OBJECTS_DIRECTORY		:= objs/

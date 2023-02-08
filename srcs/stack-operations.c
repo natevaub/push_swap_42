@@ -6,12 +6,13 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/02 20:01:41 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:06:32 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/* Basic operations */
 void print_list(t_stack *head)
 {
 	t_stack *current;
