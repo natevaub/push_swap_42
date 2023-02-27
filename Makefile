@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/02/08 19:18:14 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/02/27 17:26:50 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,5 +84,5 @@ fclean: clean
 	$(MAKE) -sC $(LIBFT_DIRECTORY) clean
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY) clean
 	rm -f libft.a
-	rm -f libftprinf.a
+	rm -f libftprintf.a
 	rm -f $(NAME)
