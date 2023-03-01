@@ -6,23 +6,22 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:04:38 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/27 19:00:01 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/02/27 23:49:49 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/* Function to check if user input fits in an int */
 int is_valid_input(char *str)
 {
 	int num;
 
 	num = ft_atoi(str);
-	if (num < 0)
-		return (1);
 	if (num == 0 && str[0] != '0') {
 		return (1); // not a valid integer
 	}
-	if (num < INT_MIN || num > INT_MAX) {
+	else if (num < INT_MIN || num > INT_MAX) {
 		return (1); // integer out of range
 	}
 	return (0); // valid integer

@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/27 19:00:13 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:46:02 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,26 @@
 
 int main(int ac, char **av)
 {
-	t_stack *top;
-	top = NULL;
-	int i = 1;
-	// ft_printf("Number of arguments %d\n", ac);
-	// printf("%d", ft_atoi(av[1]));
-	while (i <= ac - 1)
+	t_global *ps = (t_global *)malloc(sizeof(t_global));
+	ps->stack_a = NULL;
+	ps->stack_b = NULL;
+
+	int i = ac - 1;
+	ft_printf("Nombre d'arguments = %d\n", i);
+	while (i >= 1)
 	{
-		top = insert_at_tail(top, ft_atoi(av[i]));
-		if (find_duplicate(top) || is_valid_input(av[i]))
+		ps->stack_a = insert_at_head(ps->stack_a, ft_atoi(av[i]));
+		if (find_duplicate(ps->stack_a) || is_valid_input(av[i]))
 			error_msg();
-		i++;
+		i--;
 	}
-	print_list(top);
+	print_stack(ps);
+	sa(&ps->stack_a);
+	print_stack(ps);
+
+	// Remember to free the memory allocated for ps when you're done
+	free(ps->stack_a);
+	free(ps->stack_b);
+	free(ps);
+	return (0);
 }

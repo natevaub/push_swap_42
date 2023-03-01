@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/27 18:44:47 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:41:11 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,24 @@ typedef struct s_stack {
 	struct s_stack *next;
 }	t_stack;
 
-/* Fonctions */
+typedef struct s_global {
+	t_stack *stack_a;
+	t_stack *stack_b;
+}	t_global;
 
+/* Fonctions */
 t_stack	*insert_at_tail(t_stack *head, int new_value);
 t_stack	*insert_at_head(t_stack *head, int new_value);
 int		find_duplicate(t_stack *node);
-void	print_list(t_stack *head);
+void	print_stack(t_global *ps);
 void	error_msg(void);
-void	error_handling(t_stack *node);
 int		is_valid_input(char *str);
 int		main(int ac, char **av);
+
+/* Push Swap Operations */
+void	sa(t_stack **head);
+void	sb(t_stack **head);
+void	ss(t_global *ps);
 
 
 #endif
