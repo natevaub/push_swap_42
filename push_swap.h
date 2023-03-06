@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/01 16:27:57 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:15:13 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	sb(t_stack **head);
 void	ss(t_global *ps);
 void	pa(t_global *ps);
 void	pb(t_global *ps);
+void	ra(t_stack **head);
 
 
 #endif

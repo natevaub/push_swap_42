@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/01 16:49:19 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:14:52 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	ss(t_global *ps)
 
 void	pa(t_global *ps)
 {
-	int tmp;
+	int	tmp;
 
 	if (ps->stack_b == NULL)
 		return; 
@@ -127,7 +127,7 @@ void	pa(t_global *ps)
 
 void	pb(t_global *ps)
 {
-	int tmp;
+	int	tmp;
 
 	if (ps->stack_a == NULL)
 		return;
@@ -137,5 +137,30 @@ void	pb(t_global *ps)
 		insert_at_head(&ps->stack_b, tmp);
 		delete_at_head(&ps->stack_a);
 		ft_printf("pb\n");
+	}
+}
+
+void	ra(t_stack **head)
+{
+	t_stack *node;
+	t_stack *last_node;
+
+	// Check if the list has more than one node
+	if (*head != NULL && (*head)->next != NULL)
+	{
+		// Save the first node in temporary variable
+		node = *head;
+		// Set the head to point to the second element
+		*head = (*head)->next;
+		// Traverse the list to find the last node
+		last_node = node;
+		while (last_node->next != NULL)
+		{
+			last_node = last_node->next;
+		}
+		// Set the next pointer of the last node to the first node
+		last_node->next = node;
+		// Set the next pointer of the first node to NULL
+		node->next = NULL;
 	}
 }

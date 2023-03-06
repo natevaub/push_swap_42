@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/01 16:49:42 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:15:51 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,7 @@ int main(int ac, char **av)
 		i--;
 	}
 	print_stack(ps);
-	sa(&ps->stack_a);
-	print_stack(ps);
-	pb(ps);
-	print_stack(ps);
-	pb(ps);
-	print_stack(ps);
-	pa(ps);
+	ra(&ps->stack_a);
 	print_stack(ps);
 
 	// Remember to free the memory allocated for ps when you're done
