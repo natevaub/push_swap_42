@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/05 17:15:51 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:35:00 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main(int ac, char **av)
 	ps->stack_b = NULL;
 
 	int i = ac - 1;
-	ft_printf("Nombre d'arguments = %d\n", i);
 	while (i >= 1)
 	{
 		insert_at_head(&ps->stack_a, ft_atoi(av[i]));
@@ -28,12 +27,12 @@ int main(int ac, char **av)
 		i--;
 	}
 	print_stack(ps);
-	ra(&ps->stack_a);
+	rra(&ps->stack_a);
 	print_stack(ps);
 
 	// Remember to free the memory allocated for ps when you're done
-	// free(ps->stack_a);
-	// free(ps->stack_b);
-	// free(ps);
+	free(ps->stack_a);
+	free(ps->stack_b);
+	free(ps);
 	return (0);
 }

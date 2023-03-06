@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/05 17:14:52 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/06 09:58:47 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,99 +68,5 @@ void	delete_at_head(t_stack **head)
 		new_head = (*head)->next;
 		free(*head);
 		*head = new_head;
-	}
-}
-
-
-void	sa(t_stack **head)
-{
-	t_stack	*tmp;
-	t_stack	*next;
-
-	if (*head && (*head)->next)
-	{
-		tmp = *head;
-		next = (*head)->next;
-		tmp->next = next->next;
-		next->next = tmp;
-		*head = next;
-		ft_printf("sa\n");
-	}
-}
-
-void	sb(t_stack **head)
-{
-	t_stack	*tmp;
-	t_stack	*next;
-
-	if (*head && (*head)->next)
-	{
-		tmp = *head;
-		next = (*head)->next;
-		tmp->next = next->next;
-		next->next = tmp;
-		*head = next;
-		ft_printf("sb\n");
-	}
-}
-
-void	ss(t_global *ps)
-{
-	sa(&ps->stack_a);
-	sb(&ps->stack_b);
-}
-
-void	pa(t_global *ps)
-{
-	int	tmp;
-
-	if (ps->stack_b == NULL)
-		return; 
-	else 
-	{
-		tmp = ps->stack_b->value;
-		insert_at_head(&ps->stack_a, tmp);
-		delete_at_head(&ps->stack_b);
-		ft_printf("pa\n");
-	}
-}
-
-void	pb(t_global *ps)
-{
-	int	tmp;
-
-	if (ps->stack_a == NULL)
-		return;
-	else 
-	{
-		tmp = ps->stack_a->value;
-		insert_at_head(&ps->stack_b, tmp);
-		delete_at_head(&ps->stack_a);
-		ft_printf("pb\n");
-	}
-}
-
-void	ra(t_stack **head)
-{
-	t_stack *node;
-	t_stack *last_node;
-
-	// Check if the list has more than one node
-	if (*head != NULL && (*head)->next != NULL)
-	{
-		// Save the first node in temporary variable
-		node = *head;
-		// Set the head to point to the second element
-		*head = (*head)->next;
-		// Traverse the list to find the last node
-		last_node = node;
-		while (last_node->next != NULL)
-		{
-			last_node = last_node->next;
-		}
-		// Set the next pointer of the last node to the first node
-		last_node->next = node;
-		// Set the next pointer of the first node to NULL
-		node->next = NULL;
 	}
 }

@@ -6,21 +6,23 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/05 17:15:13 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:09:39 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <unistd.h>
-#include <string.h>
-#include <limits.h>
-#include "libs/libft/libft.h"
-#include "libs/ftprintf/ft_printf.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <math.h>
+# include <unistd.h>
+# include <string.h>
+# include "libs/libft/libft.h"
+# include "libs/ftprintf/ft_printf.h"
+
+# define INT_MAX "2147483647"
+# define INT_MIN "-2147483648"
 
 /* Structs */
 typedef struct s_stack {
@@ -49,6 +51,10 @@ void	ss(t_global *ps);
 void	pa(t_global *ps);
 void	pb(t_global *ps);
 void	ra(t_stack **head);
+void	rb(t_stack **head);
+void	rra(t_stack **head);
+void	rrb(t_stack **head);
+void	rrr(t_global *ps);
 
 
 #endif

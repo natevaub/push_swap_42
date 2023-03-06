@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:04:38 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/02/27 23:49:49 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:01:43 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,28 @@
 /* Function to check if user input fits in an int */
 int is_valid_input(char *str)
 {
-	int num;
-
-	num = ft_atoi(str);
-	if (num == 0 && str[0] != '0') {
-		return (1); // not a valid integer
+	int i = 0;
+	int len = ft_strlen(str);
+	// Check for negative numbers
+	if (str[i] == '-')
+	{
+		i++;
+		len--;
 	}
-	else if (num < INT_MIN || num > INT_MAX) {
-		return (1); // integer out of range
+	// Check for non-digit characters and length limit
+	while (i < len)
+	{
+		if (!ft_isdigit(str[i]))
+			return (1);
+		i++;
 	}
-	return (0); // valid integer
+	// Check for overflow or underflow
+	if (ft_strlen(str) > 11 || (ft_strlen(str) == 11
+	&& ft_strncmp(str, INT_MIN, 11) < 0)
+	|| (ft_strlen(str) == 10 && str[0] != '-'
+	&& ft_strncmp(str, INT_MAX, 10) < 0))
+		return (1);
+	return (0);
 }
 
 int find_duplicate(t_stack *node) {
