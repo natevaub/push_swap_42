@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:36:35 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/06 12:05:16 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:15:18 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	stack_size(t_stack **head)
 {
-
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/03/06 11:36:59 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/03/07 19:14:33 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SOURCES_LIST			:=	main.c				\
 							ps_operations.c		\
 							rot_operations.c	\
 							utils.c				\
-							sort_stack.c		\
+							sort.c				\
 
 
 OBJECTS_DIRECTORY		:= objs/
