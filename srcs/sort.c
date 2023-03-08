@@ -6,7 +6,17 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:35:47 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/06 11:35:47 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:24:35 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap"
+
+void	sort_3(t_global ps)
+{
+	int	min;
+	int	max;
+	int	middle;
+
+
+}

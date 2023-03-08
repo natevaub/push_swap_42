@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/08 17:01:38 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:49:22 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void deallocate(t_stack **head)
 
 	while (curr != NULL)
 	{
-		printf("siugsaig\n");
 		aux = curr;
 		curr = curr->next;
 		free(aux);
