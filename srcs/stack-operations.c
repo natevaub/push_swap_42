@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/06 09:58:47 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:01:38 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ void	delete_at_head(t_stack **head)
 		free(*head);
 		*head = new_head;
 	}
+}
+
+void deallocate(t_stack **head)
+{
+	t_stack	*curr = *head;
+	t_stack	*aux;
+
+	while (curr != NULL)
+	{
+		printf("siugsaig\n");
+		aux = curr;
+		curr = curr->next;
+		free(aux);
+	}
+	*head = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/06 11:09:39 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:47:23 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rb(t_stack **head);
 void	rra(t_stack **head);
 void	rrb(t_stack **head);
 void	rrr(t_global *ps);
-
+void deallocate(t_stack **head);
 
 #endif
 
