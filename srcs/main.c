@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/08 16:59:32 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:41:26 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ int main(int ac, char **av)
 
 	char	**input;
 	int		count;
+	int		ccount;
 	
 	if (ac == 2)
 	{
 		printf("ac == 2\n");
 		input = arg_init(av[1]);
 		count = args_count(input) - 1;
+		ccount = count;
 		printf("Count = %d\n", count);
 		while (count >= 0)
 		{
@@ -89,6 +91,12 @@ int main(int ac, char **av)
 				error_msg();
 			i--;
 		}
+	}
+
+	if (ccount == 2 || ac == 4)
+	{
+		printf("if count == 2 || ac == 4\n");
+		sort3(&ps);
 	}
 
 	print_stack(&ps);
