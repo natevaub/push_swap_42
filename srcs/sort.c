@@ -75,19 +75,27 @@ void	find_min_pb(t_global *ps)
 	{
 		size = stack_size(&ps->stack_a);
 		index = stack_min(&ps->stack_a);
+		printf("Index = %d\n", index);
 		if (index <= (size/2))
+		{
 			while (index)
 			{
 				ra(&ps->stack_a);
+				print_stack(ps);
 				index--;
 			}
+		}
 		else
-			while (index <= size - 1)
+		{
+			while (index <= size)
 			{
 				rra(&ps->stack_a);
+				print_stack(ps);
 				index++;
 			}
+		}
 		pb(ps);
+		print_stack(ps);
 		loop++;
 	}
 }
