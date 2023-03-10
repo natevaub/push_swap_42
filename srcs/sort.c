@@ -44,10 +44,12 @@ void	top_less_middle(t_global *ps)
 
 void	sort3(t_global *ps)
 {
+	int i = stack_min(&ps->stack_a);
+	printf("Index = %d\n", i);
 	if (is_sorted(&ps->stack_a))
 		return;
 	if (ps->stack_a->value < ps->stack_a->next->value)
 		top_greater_middle(ps);
-	else if (ps->stack_a->next->value < ps->stack_a->next->next->value)
+	else 
 		top_less_middle(ps);
 }

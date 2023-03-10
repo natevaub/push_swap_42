@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:04 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/09 16:37:59 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:52:58 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void	rrb(t_stack **head);
 void	rrr(t_global *ps);
 
 void	deallocate(t_stack **head);
+
 int		is_sorted(t_stack **head);
+int		stack_min(t_stack **head);
 
 
 void	sort3(t_global *ps);

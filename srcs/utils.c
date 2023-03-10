@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:36:35 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/09 14:41:51 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/10 02:24:47 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,27 @@
 int	stack_size(t_stack **head)
 {
 	return (0);
+}
+
+int	stack_min(t_stack **head)
+{
+	t_stack *curr;
+	int	index_min;
+	int	min_val;
+
+	curr = *head;
+	index_min = -1;
+	min_val = 2147483647;
+	while (curr != NULL)
+	{
+		if (curr->value < min_val)
+		{
+			min_val = curr->value;
+			index_min++;
+		}
+		curr = curr->next;
+	}
+	return (index_min);
 }
 
 int	is_sorted(t_stack **head)

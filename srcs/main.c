@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/09 15:41:26 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/10 02:28:41 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int main(int ac, char **av)
 		{
 			printf("sigwhile -- %s\n", input[count]);
 			insert_at_head(&ps.stack_a, ft_atoi(input[count]));
-		// 	if (find_duplicate(ps.stack_a) || is_valid_input(input[count]))
-		// 		error_msg();
+			if (find_duplicate(ps.stack_a) || is_valid_input(input[count]))
+				error_msg();
 			count--;
 		}
 		for (int i = 0; input[i]; i++)
