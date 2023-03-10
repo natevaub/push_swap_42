@@ -6,29 +6,11 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:22:11 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/10 02:28:41 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:56:51 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// int args_count(char *str)
-// {
-// 	int i;
-// 	int	words;
-
-// 	i = 0;
-// 	words = 0;
-// 	while (str[i] && str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
-// 		i++;
-// 	if (str[i])
-// 	{
-// 		words++;
-// 		while (str[i] && str[i] != ' ' && str[i] != '\n' && str[i] != '\t')
-// 			i++;
-// 	}
-// 	return (words);
-// }
 
 int args_count(char **input)
 {
@@ -97,6 +79,13 @@ int main(int ac, char **av)
 	{
 		printf("if count == 2 || ac == 4\n");
 		sort3(&ps);
+	}
+
+	else if (ccount == 4 || ac == 6)
+	{
+		printf("if count == 4 || ac == 6\n");
+		sort5(&ps);
+
 	}
 
 	print_stack(&ps);

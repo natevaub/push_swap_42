@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:36:35 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/03/10 02:24:47 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:42:03 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 int	stack_size(t_stack **head)
 {
-	return (0);
+	int		size;
+	t_stack	*curr;
+
+	size = 0;
+	curr = *head;
+	while (curr != NULL)
+	{
+		size++;
+		curr = curr->next;
+	}
+	return (size);
 }
 
 int	stack_min(t_stack **head)
@@ -41,13 +51,15 @@ int	stack_min(t_stack **head)
 int	is_sorted(t_stack **head)
 {
 	t_stack	*curr;
+	int		sorted;
 
 	curr = *head;
+	sorted = 1;
 	while (curr != NULL && curr->next != NULL)
 	{
 		if (curr->value > curr->next->value)
-			return (0);
+			sorted = 0;
 		curr = curr->next;
 	}
-	return (1);
+	return (sorted);
 }
