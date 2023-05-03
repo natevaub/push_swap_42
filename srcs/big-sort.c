@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/01 12:46:52 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 01:18:43 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ void	big_sort_last_step(t_global *ps)
 	int	i_mina;
 	int	i_maxa;
 
-	// while (stack_size(&ps->stack_b > 0))
-	// {
+	while (stack_size(&ps->stack_b > 0))
+	{
 		mina = stack_min_value(ps->stack_a);
 		i_mina = find_index_of_element(ps->stack_a, mina);
 		maxa = stack_min_value(ps->stack_a);
 		i_maxa = find_index_of_element(ps->stack_a, maxa);
 		if (ps->stack_b->value < mina || ps->stack_b->value > maxa)
 		{
-			bring_top_minimum_a(i_mina, ps->stack_a);
+			bring_top_minimum_a(i_mina, &ps->stack_a);
 		}
 		pa(ps);
-	// }
+	}
 }
