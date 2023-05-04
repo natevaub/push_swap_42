@@ -218,6 +218,7 @@ def solve(elems):
             # find index of smalles elemeent in b
             bring_top_minimum_a(a._elems.index(min(a._elems)), a)
             pb()
+            print('\n', a, '\n', b, '\n')
         else:
             e = find_smallest_bigger_than(b._elems[0])
             print(e)
@@ -225,12 +226,15 @@ def solve(elems):
             a_moves = bring_top_minimum_moves(e, a)
             bring_top_minimum_a(a_moves, a)
             pb()
+            print('\n', a, '\n', b, '\n')
+            
 
 
     # find index smallest element in a
     a_idx = a._elems.index(min(a._elems))
     a_moves = bring_top_minimum_moves(a_idx, a)
     bring_top_minimum_a(a_moves, a)
+    print('\n', a, '\n', b, '\n')
 
 
 
