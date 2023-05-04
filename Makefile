@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/04/30 11:54:36 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/05/04 16:13:21 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ CFLAGS					:= #-Wall -Wextra -Werror
 
 LIB_DIRECTORY			:= ./libs/
 
-LIBFT					:= $(LIBFT_DIRECTORY)libft.a
 LIBFT_DIRECTORY			:= $(LIB_DIRECTORY)libft/
+LIBFT					:= $(LIBFT_DIRECTORY)libft.a
 
-LIBPRINTF				:= $(LIBPRINTF_DIRECTORY)libftprintf.a # /libs/libftprinf/libftprintf.a
 LIBPRINTF_DIRECTORY		:= $(LIB_DIRECTORY)ftprintf/ #/libs/ftprintf
+LIBPRINTF				:= $(LIBPRINTF_DIRECTORY)libftprintf.a # /libs/libftprinf/libftprintf.a
 
 SOURCES_DIRECTORY		:= ./srcs/
 
@@ -59,39 +59,18 @@ $(OBJECTS_DIRECTORY):
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -Llibs/ftprintf -lftprintf -Llibs/libft -lft -o $(NAME)
+
 $(LIBFT):
-	echo compilating libft
+	@echo "$(NAME) : Compiling libft "
 	$(MAKE) -sC $(LIBFT_DIRECTORY)
 	cp libs/libft/libft.a .
 
 $(LIBPRINTF):
-	@echo "$(NAME): Creating $(LIBPRINTF)..."
+	@echo "$(NAME): Compiling ftprintf "
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY)
 	cp libs/ftprintf/libftprintf.a .
-
-$(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -Llibs/ftprintf -lftprintf -Llibs/libft -lft -o $(NAME)
-
-debug: $(NAME) #$(BONUS_NAME)
-
-$(OBJECTS_DIRECTORY):
-	mkdir -p $(OBJECTS_DIRECTORY)
-
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIBFT):
-	echo compilating libft
-	$(MAKE) -sC $(LIBFT_DIRECTORY)
-	cp libs/libft/libft.a .
-
-$(LIBPRINTF):
-	@echo "$(NAME): Creating $(LIBPRINTF)..."
-	$(MAKE) -sC $(LIBPRINTF_DIRECTORY)
-	cp libs/ftprintf/libftprintf.a .
-
-$(NAME): $(LIBFT) $(LIBPRINTF) $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -Llibs/ftprintf -lftprintf -Llibs/libft -lft -o $(NAME)
 
 clean:
 	$(MAKE) -sC $(LIBPRINTF_DIRECTORY) clean
@@ -105,6 +84,6 @@ fclean: clean
 	rm -f libftprintf.a
 	rm -f $(NAME)
 
-re : all fclean
+re : fclean all
 
 .PHONY: all clean fclean re
