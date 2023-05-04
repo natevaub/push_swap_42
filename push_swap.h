@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/01 10:11:29 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:41:17 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	compute_operations(int a_idx, t_global *ps, t_moves *moves);
 
 /* --- big-sort.c --- */
 void	big_sort_first_step(t_global *ps);
-void	big_sort_last_step(t_global *ps);
+void	big_sort_second_step(t_global *ps);
 
 
 #endif

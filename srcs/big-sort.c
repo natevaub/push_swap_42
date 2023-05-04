@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 01:18:43 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:10:44 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,22 @@ void	big_sort_first_step(t_global *ps)
 		pb(ps);
 		reset_best_moves(&best_moves);
 		print_stack(ps);
-		// exit(1);
 	}
 	sort3(ps);
 	print_stack(ps);
 }
 
-void	big_sort_last_step(t_global *ps)
+void	big_sort_second_step(t_global *ps)
 {
 	int	mina;
 	int	maxa;
 	int	i_mina;
 	int	i_maxa;
+	int	b_elem;
+	int	temp;
+	t_moves	moves;
 
-	while (stack_size(&ps->stack_b > 0))
+	while (stack_size(&ps->stack_b) > 0)
 	{
 		mina = stack_min_value(ps->stack_a);
 		i_mina = find_index_of_element(ps->stack_a, mina);
@@ -70,8 +72,21 @@ void	big_sort_last_step(t_global *ps)
 		i_maxa = find_index_of_element(ps->stack_a, maxa);
 		if (ps->stack_b->value < mina || ps->stack_b->value > maxa)
 		{
-			bring_top_minimum_a(i_mina, &ps->stack_a);
+			bring_top_minimum_a(i_mina, ps);
+			pa(ps);
+			print_stack(ps);
 		}
-		pa(ps);
+		else
+		{
+			b_elem = find_index_of_element(ps->stack_b, 0);
+			temp = find_smallest_bigger_than(b_elem, ps);
+			moves.a_moves = bring_top_minimum_moves_a(moves.a_moves, ps);
+			ft_printf("MOOVES = %d\n", moves.a_moves);
+			pa(ps);
+			print_stack(ps);
+		}
 	}
+	i_mina = stack_min_index(ps->stack_a);
+	moves.a_moves = bring_top_minimum_moves_a(i_mina, ps);
+	bring_top_minimum_moves_a(moves.a_moves, ps);
 }
