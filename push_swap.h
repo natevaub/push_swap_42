@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 11:41:17 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:23:35 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	bring_top_minimum_b(int op, t_global *ps);
 
 /* --- utils3.c --- */
 int		find_biggest_smaller_than(int number, t_stack *head);
-int		find_smallest_bigger_than(int number, t_global *ps);
+int		find_smallest_bigger_than(int number, t_stack *head);
 void	compute_operations(int a_idx, t_global *ps, t_moves *moves);
 
 /* --- big-sort.c --- */

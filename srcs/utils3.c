@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:03:23 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/01 12:46:23 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:01:51 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,29 @@ int	find_biggest_smaller_than(int number, t_stack *head)
 	return (res);
 }
 
-int	find_smallest_bigger_than(int number, t_global *ps)
+int	find_smallest_bigger_than(int number, t_stack *head)
 {
 	int	i;
 	int	current;
 	int	res;
+	t_stack	*curr;
 
+	curr = head;
 	i = 0;
 	res = -1;
-	current = stack_max_index(ps->stack_a);
-	while (i < stack_size(&ps->stack_a))
+	current = stack_max_value(head);
+	ft_printf("max stack = %d\n", current);
+	while (curr != NULL)
 	{
-		if (ps->stack_a->value >= number && ps->stack_a->value <= current)
+		ft_printf("Curr value = %d Number = %d Current = %d\n", curr->value, number, current);
+		if (curr->value >= number && curr->value <= current)
 		{
-			current = ps->stack_a->value;
+			current = curr->value;
 			res = i;
+			ft_printf("Res = %d\n", res);
 		}
+		i++;
+		curr = curr->next;
 	}
 	return (res);
 }

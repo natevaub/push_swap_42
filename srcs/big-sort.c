@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 12:14:40 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:07:04 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ void	big_sort_second_step(t_global *ps)
 	{
 		mina = stack_min_value(ps->stack_a);
 		i_mina = find_index_of_element(ps->stack_a, mina);
-		maxa = stack_min_value(ps->stack_a);
+		maxa = stack_max_value(ps->stack_a);
 		i_maxa = find_index_of_element(ps->stack_a, maxa);
+		ft_printf("%d --- %d\n", mina, maxa);
 		if (ps->stack_b->value < mina || ps->stack_b->value > maxa)
 		{
 			bring_top_minimum_a(i_mina, ps);
@@ -78,10 +79,13 @@ void	big_sort_second_step(t_global *ps)
 		}
 		else
 		{
-			b_elem = find_index_of_element(ps->stack_b, 0);
-			temp = find_smallest_bigger_than(b_elem, ps);
-			moves.a_moves = bring_top_minimum_moves_a(moves.a_moves, ps);
+			b_elem = ps->stack_b->value;
+			ft_printf("b_elem = %d\n", b_elem);
+			temp = find_smallest_bigger_than(b_elem, ps->stack_a);
+			ft_printf("FInd smallet bigget than = %d\n", temp);
+			moves.a_moves = bring_top_minimum_moves_a(temp, ps);
 			ft_printf("MOOVES = %d\n", moves.a_moves);
+			bring_top_minimum_a(moves.a_moves, ps);
 			pa(ps);
 			print_stack(ps);
 		}
