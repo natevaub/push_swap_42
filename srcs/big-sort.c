@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 12:10:44 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:14:40 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	big_sort_second_step(t_global *ps)
 		}
 	}
 	i_mina = stack_min_index(ps->stack_a);
+	ft_printf("Min a = %d\n", i_mina);
 	moves.a_moves = bring_top_minimum_moves_a(i_mina, ps);
-	bring_top_minimum_moves_a(moves.a_moves, ps);
+	ft_printf("amoves = %d\n", moves.a_moves);
+	bring_top_minimum_a(moves.a_moves, ps);
 }
