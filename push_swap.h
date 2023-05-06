@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 16:23:35 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:18:54 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ typedef struct s_moves {
 	int	a_moves;
 	int	b_moves;
 }	t_moves;
+
+typedef struct s_compute_helper
+{
+	int	greedy_a;
+	int	greedy_b;	
+}	t_compute_helper;
+
 
 
 /* --- helpers.c --- */

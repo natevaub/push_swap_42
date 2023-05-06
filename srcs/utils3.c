@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:03:23 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 17:16:55 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:38:03 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	compute_operations(int a_idx, t_global *ps, t_moves *moves)
 	// Fonctions min val stack, max val stack
 	// Fonction min index stack, max index stack
 	int	a_elem;
-	int	b_elem;
+	int	b_index;
 	int	minb;
 	int	maxb;
 	int	i;
@@ -77,7 +77,8 @@ void	compute_operations(int a_idx, t_global *ps, t_moves *moves)
 	moves->a_moves = bring_top_minimum_moves_a(a_idx, ps);
 	if (a_elem > maxb || a_elem < minb)
 	{
-		b_elem = find_index_of_element(ps->stack_b, maxb);
+		b_index = find_index_of_element(ps->stack_b, maxb);
+		moves->b_moves = bring_top_minimum_moves_b(b_index, ps);
 	}
 	else
 	{

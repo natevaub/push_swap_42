@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 18:12:43 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:02:23 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,21 @@ void	big_sort_first_step(t_global *ps)
 		while (x < stack_size(&ps->stack_a))
 		{
 			compute_operations(x, ps, &current_moves);
+			// ft_printf("Current mooves %d --- %d\n", current_moves.a_moves, current_moves.b_moves);
 			if (iabs(current_moves.a_moves) + iabs(current_moves.b_moves) 
 			< iabs(best_moves.a_moves) + iabs(best_moves.b_moves))
 			{
 				best_index = x;
-				best_moves.a_moves = iabs(current_moves.a_moves);
-				best_moves.b_moves = iabs(current_moves.b_moves);
+				best_moves.a_moves = current_moves.a_moves;
+				best_moves.b_moves = current_moves.b_moves;
+				// ft_printf("------ New Best moove = %d %d %d\n", x, best_moves.a_moves, best_moves.b_moves);
 			}
 			x++;
 		}
-		/* Get index of minimum in ops */
 		x = 0;
 		bring_top_minimum_a(best_moves.a_moves, ps);
 		bring_top_minimum_b(best_moves.b_moves, ps);
+		// print_stack(ps);
 		pb(ps);
 		reset_best_moves(&best_moves);
 	}

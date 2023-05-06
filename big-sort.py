@@ -79,11 +79,11 @@ def solve(elems):
         swap(b)
 
     def pa():
-        operations.append("pa")
+        operations.append("pb")
         push(a, b)
 
     def pb():
-        operations.append("pb")
+        operations.append("pa")
         push(b, a)
 
     def ra():
@@ -125,7 +125,7 @@ def solve(elems):
         else:
             return -(len(stack) - idx)
 
-    def bring_top_minimum_a(operations, stack: Stack):
+    def bring_top_minimum_a(operations):
         if operations > 0:
             for _ in range(operations):
                 ra()
@@ -133,13 +133,66 @@ def solve(elems):
             for _ in range(-operations):
                 rra()
 
-    def bring_top_minimum_b(operations, stack: Stack):
+    def bring_top_minimum_b(operations):
         if operations > 0:
             for _ in range(operations):
                 rb()
         else:
             for _ in range(-operations):
                 rrb()
+
+    def magic_compute(a_idx, b_idx):
+        greedy_a = bring_top_minimum_moves(a_idx, a)
+        greedy_b = bring_top_minimum_moves(b_idx, b)
+        greedy_total = abs(greedy_a) + abs(greedy_b)
+
+        rotate_a =  a_idx
+        rotate_b =  b_idx
+        rotate_total = max(rotate_a, rotate_b)
+
+        r_rotate_a =  -(len(a) - a_idx)
+        r_rotate_b =  -(len(b) - b_idx)
+        r_rotate_total = max(abs(r_rotate_a), abs(r_rotate_b))
+
+        if greedy_total <= rotate_total and greedy_total <= r_rotate_total:
+            return greedy_a, greedy_b
+
+        if rotate_total <= greedy_total and rotate_total <= r_rotate_total:
+            return rotate_a, rotate_b
+
+        else:
+            return r_rotate_a, r_rotate_b
+
+    def magic_bring_top(a_moves, b_moves):
+        sign = a_moves * b_moves
+        if sign > 0:
+            aa = abs(a_moves)
+            bb = abs(b_moves)
+            xx = min(aa, bb)
+            yy = max(aa, bb) - xx
+
+            for _ in range(xx):
+                if a_moves > 0:
+                    rr()
+                else:
+                    rrr()
+            
+            for _ in range(yy):
+                if a_moves > 0:
+                    if aa > bb:
+                        ra()
+                    else:
+                        rb()
+                else:
+                    if aa > bb:
+                        rra()
+                    else:
+                        rrb()
+        
+        else:
+            bring_top_minimum_a(a_moves)
+            bring_top_minimum_b(b_moves)
+        
 
 
 
@@ -176,14 +229,22 @@ def solve(elems):
         minb = min(b._elems)
         maxb = max(b._elems)
 
-        a_moves = bring_top_minimum_moves(a_idx, a)
+        # a_moves = bring_top_minimum_moves(a_idx, a)
+
+        # if a_elem > maxb or a_elem < minb:
+        #     b_moves = bring_top_minimum_moves(b._elems.index(maxb), b)
+        #     return a_moves, b_moves
+        # else:
+        #     e = find_biggest_smaller_than(a_elem)
+        #     b_moves = bring_top_minimum_moves(e, b)
+        #     return a_moves, b_moves
 
         if a_elem > maxb or a_elem < minb:
-            b_moves = bring_top_minimum_moves(b._elems.index(maxb), b)
+            a_moves, b_moves = magic_compute(a_idx, b._elems.index(maxb))
             return a_moves, b_moves
         else:
             e = find_biggest_smaller_than(a_elem)
-            b_moves = bring_top_minimum_moves(e, b)
+            a_moves, b_moves = magic_compute(a_idx, e)
             return a_moves, b_moves
 
 
@@ -191,9 +252,7 @@ def solve(elems):
     #     # sort the top 3 elements of a
 
     pa()
-    print('\n', a, '\n', b, '\n')
     pa()
-    print('\n', a, '\n', b, '\n')
 
     while len(a) > 1:
         ops = []
@@ -204,11 +263,10 @@ def solve(elems):
         # get index of minimum in ops
         min_idx = ops.index(min(ops, key=lambda x: abs(x[0]) + abs(x[1]) + 1))
         moves_a, moves_b = ops[min_idx]
-        bring_top_minimum_a(moves_a, a)
-        bring_top_minimum_b(moves_b, b)
+        # bring_top_minimum_a(moves_a)
+        # bring_top_minimum_b(moves_b)
+        magic_bring_top(moves_a, moves_b)
         pa()
-        print('\n', a, '\n', b, '\n')
-        # print(i, x, "-->", moves_a, moves_b, abs(moves_a) + abs(moves_b) + 1)
 
     print("-----------")
     while len(b) > 0:
@@ -216,31 +274,24 @@ def solve(elems):
         maxa = max(a._elems)
         if  b._elems[0] < mina or b._elems[0] > maxa :
             # find index of smalles elemeent in b
-            bring_top_minimum_a(a._elems.index(min(a._elems)), a)
+            bring_top_minimum_a(a._elems.index(min(a._elems)))
             pb()
-            print('\n', a, '\n', b, '\n')
         else:
             e = find_smallest_bigger_than(b._elems[0])
-            print(e)
-            print(a, '\n' , b)
             a_moves = bring_top_minimum_moves(e, a)
-            bring_top_minimum_a(a_moves, a)
+            bring_top_minimum_a(a_moves)
             pb()
-            print('\n', a, '\n', b, '\n')
             
 
 
     # find index smallest element in a
     a_idx = a._elems.index(min(a._elems))
     a_moves = bring_top_minimum_moves(a_idx, a)
-    bring_top_minimum_a(a_moves, a)
-    print('\n', a, '\n', b, '\n')
+    bring_top_minimum_a(a_moves)
 
 
 
 
-    print(a)
-   
     # assert a sorted
     assert sorted(a._elems) == a._elems
 
@@ -253,15 +304,18 @@ def solve(elems):
 
 
 
-           
-elems = random.sample(range(0, 1000), k=100)
-elems = [8, 62, 3, 67, 39, 9, 94, 52, 66, 1, 30, 33, 84, 25, 70, 96, 13, 35, 41, 34, 4, 81, 2, 56, 15, 59, 47, 46, 11, 38, 61, 91, 64, 65, 89, 83, 42, 75, 17, 99, 78, 49, 28, 77, 32, 63, 95, 100, 51, 20, 19, 71, 68, 76, 58, 69, 86, 10, 7, 36, 50, 88, 72, 82, 98, 80, 97, 60, 45, 73, 14, 21, 29, 44, 53, 40, 31, 54, 57, 87, 79, 6, 23, 5, 27, 37, 48, 18, 55, 12, 43, 22, 93, 26, 16, 90, 85, 74, 92, 24]
+random.seed(7)
+elems = random.sample(range(0, 1000), k=500)
+#elems = [2, 81, 56, 29, 94, 33, 66, 71, 27, 16, 64, 24, 79, 51, 9, 68, 42, 46, 50, 11, 98, 20, 26, 82, 61, 22, 80, 85, 15, 36, 7, 96, 13, 18, 73, 76, 91, 35, 55, 3, 10, 31, 48, 70, 47, 95, 60, 40, 1, 99]
 #elems = [65, 204, 149, 668, 672]
 #elems = [567, 655, 60, 484, 858]
 print(elems)
 ops = solve(elems)
 
 print(len(ops))
+
+from collections import Counter
+print(Counter(ops))
 
 # m = []
 # for _ in range(100):
