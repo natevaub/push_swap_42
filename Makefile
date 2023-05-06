@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/05/04 16:13:21 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/05/06 13:22:29 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SOURCES_LIST			:=	error-management.c			\
 							utils1.c					\
 							utils2.c					\
 							utils3.c					\
+							utils4.c					\
 							sort-2-3-5.c				\
 							helpers-sort-2-3-5.c		\
 							big-sort.c					\

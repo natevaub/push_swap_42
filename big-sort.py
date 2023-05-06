@@ -267,6 +267,12 @@ def solve(elems):
         # bring_top_minimum_b(moves_b)
         magic_bring_top(moves_a, moves_b)
         pa()
+        print("\n")
+        print(operations)
+        print("\n")
+        print(a)
+        print("\n")
+        print(b)
 
     print("-----------")
     while len(b) > 0:
@@ -305,8 +311,8 @@ def solve(elems):
 
 
 random.seed(7)
-elems = random.sample(range(0, 1000), k=500)
-#elems = [2, 81, 56, 29, 94, 33, 66, 71, 27, 16, 64, 24, 79, 51, 9, 68, 42, 46, 50, 11, 98, 20, 26, 82, 61, 22, 80, 85, 15, 36, 7, 96, 13, 18, 73, 76, 91, 35, 55, 3, 10, 31, 48, 70, 47, 95, 60, 40, 1, 99]
+# elems = random.sample(range(0, 1000), k=500)
+elems = [2, 81, 56, 29, 94, 33, 66, 71, 27, 16, 64, 24, 79, 51, 9, 68, 42, 46, 50, 11, 98, 20, 26, 82, 61, 22, 80, 85, 15, 36, 7, 96, 13, 18, 73, 76, 91, 35, 55, 3, 10, 31, 48, 70, 47, 95, 60, 40, 1, 99]
 #elems = [65, 204, 149, 668, 672]
 #elems = [567, 655, 60, 484, 858]
 print(elems)

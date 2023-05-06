@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/06 13:18:54 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:15:58 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,21 @@ typedef struct s_moves {
 typedef struct s_compute_helper
 {
 	int	greedy_a;
-	int	greedy_b;	
+	int	greedy_b;
+	int	greedy_total;
+	int rotate_a;
+	int	rotate_b;
+	int	rotate_total;
+	int	r_rotate_a;
+	int	r_rotate_b;
+	int	r_rotate_total;
+	int	moves_a;
+	int	moves_b;
+	int	moves_a_abs;
+	int	moves_b_abs;
+	int	minb;
+	int	maxb;
 }	t_compute_helper;
-
-
 
 /* --- helpers.c --- */
 int 	stack_min_index(t_stack *stack);
@@ -78,11 +89,15 @@ void	ss(t_global *ps);
 /* --- rotation-op.c --- */
 void	ra(t_stack **head);
 void	rb(t_stack **head);
+void	ra_no_print(t_stack **head);
+void	rb_no_print(t_stack **head);
 void	rr(t_global *ps);
 
 /* --- reverse-rotation-op.c --- */
 void	rra(t_stack **head);
 void	rrb(t_stack **head);
+void	rra_no_print(t_stack **head);
+void	rrb_no_print(t_stack **head);
 void	rrr(t_global *ps);
 
 /* --- push-op.c --- */
@@ -122,6 +137,12 @@ void	bring_top_minimum_b(int op, t_global *ps);
 int		find_biggest_smaller_than(int number, t_stack *head);
 int		find_smallest_bigger_than(int number, t_stack *head);
 void	compute_operations(int a_idx, t_global *ps, t_moves *moves);
+
+/* --- utils4.c --- */
+int		min(int a, int b);
+int		max(int a, int b);
+void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c);
+void	magic_bring_top(int a_moves, int b_moves, t_global *ps);
 
 /* --- big-sort.c --- */
 void	big_sort_first_step(t_global *ps);
