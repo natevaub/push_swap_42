@@ -144,20 +144,20 @@ def solve(elems):
     def magic_compute(a_idx, b_idx):
         greedy_a = bring_top_minimum_moves(a_idx, a)
         greedy_b = bring_top_minimum_moves(b_idx, b)
-        greedy_total = abs(greedy_a) + abs(greedy_b)
+        greedy_->tot = abs(greedy_a) + abs(greedy_b)
 
         rotate_a =  a_idx
         rotate_b =  b_idx
-        rotate_total = max(rotate_a, rotate_b)
+        rotate_->tot = max(rotate_a, rotate_b)
 
         r_rotate_a =  -(len(a) - a_idx)
         r_rotate_b =  -(len(b) - b_idx)
-        r_rotate_total = max(abs(r_rotate_a), abs(r_rotate_b))
+        r_rotate_->tot = max(abs(r_rotate_a), abs(r_rotate_b))
 
-        if greedy_total <= rotate_total and greedy_total <= r_rotate_total:
+        if greedy_->tot <= rotate_->tot and greedy_->tot <= r_rotate_->tot:
             return greedy_a, greedy_b
 
-        if rotate_total <= greedy_total and rotate_total <= r_rotate_total:
+        if rotate_->tot <= greedy_->tot and rotate_->tot <= r_rotate_->tot:
             return rotate_a, rotate_b
 
         else:

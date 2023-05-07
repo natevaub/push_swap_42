@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 11:49:58 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/01 09:53:27 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:29:31 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	find_elem_at_index(t_stack *head, int idx)
 	return (head->value);
 }
 
-int find_index_of_element(t_stack *head, int val)
+int	find_index_of_element(t_stack *head, int val)
 {
 	t_stack	*curr;
 	int		i;
@@ -52,4 +52,24 @@ void	reset_best_moves(t_moves *moves)
 {
 	moves->a_moves = 1073741823;
 	moves->b_moves = 1073741823;
+}
+
+int	min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	else if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+int	max(int a, int b)
+{
+	if (a < b)
+		return (b);
+	else if (a > b)
+		return (a);
+	else
+		return (a);
 }

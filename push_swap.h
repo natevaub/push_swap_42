@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/06 17:15:58 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 17:37:45 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 /* Structs */
 typedef struct s_stack {
-	int value;
-	struct s_stack *next;
+	int				value;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_global {
@@ -45,31 +45,37 @@ typedef struct s_compute_helper
 	int	greedy_a;
 	int	greedy_b;
 	int	greedy_total;
-	int rotate_a;
+	int	rotate_a;
 	int	rotate_b;
-	int	rotate_total;
+	int	rte_tot;
 	int	r_rotate_a;
 	int	r_rotate_b;
-	int	r_rotate_total;
+	int	r_rte_tot;
 	int	moves_a;
 	int	moves_b;
 	int	moves_a_abs;
 	int	moves_b_abs;
 	int	minb;
 	int	maxb;
+	int	mina;
+	int	maxa;
+	int	i_mina;
+	int	i_maxa;
 }	t_compute_helper;
 
 /* --- helpers.c --- */
-int 	stack_min_index(t_stack *stack);
+int		stack_min_index(t_stack *stack);
 int		stack_max_index(t_stack *stack);
-int 	stack_min_value(t_stack *head);
-int 	stack_max_value(t_stack *head);
+int		stack_min_value(t_stack *head);
+int		stack_max_value(t_stack *head);
 int		iabs(int x);
 
 /* --- helpers2.c --- */
 int		find_elem_at_index(t_stack *head, int idx);
-int 	find_index_of_element(t_stack *head, int val);
+int		find_index_of_element(t_stack *head, int val);
 void	reset_best_moves(t_moves *moves);
+int		min(int a, int b);
+int		max(int a, int b);
 
 /* --- push_swap.c --- */
 int		args_count(char **input);
@@ -80,6 +86,8 @@ int		init_stacks(t_global *ps, char **av, int ac);
 int		is_valid_input(char *str);
 int		find_duplicate(t_stack *node);
 void	error_msg(void);
+void	free_ft_split(char **arr);
+void	deallocate_stack(t_stack *head);
 
 /* --- swap-op.c --- */
 void	sa(t_stack **head);
@@ -120,6 +128,8 @@ void	sort5(t_global *ps);
 void	top_greater_middle(t_global *ps);
 void	top_less_middle(t_global *ps);
 void	find_min_pb(t_global *ps);
+void	ra_low_index(int index, t_global *ps);
+void	ra_high_index(int index, int size, t_global *ps);
 
 /* --- utils1.c --- */
 int		stack_size(t_stack **head);
@@ -139,14 +149,15 @@ int		find_smallest_bigger_than(int number, t_stack *head);
 void	compute_operations(int a_idx, t_global *ps, t_moves *moves);
 
 /* --- utils4.c --- */
-int		min(int a, int b);
-int		max(int a, int b);
 void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c);
 void	magic_bring_top(int a_moves, int b_moves, t_global *ps);
+void	handle_sim_rot(int a, t_global *ps);
+void	handle_base_rot(int a, int abs_a, int abs_b, t_global *ps);
 
 /* --- big-sort.c --- */
+void	big_sort_initial_push(t_global *ps);
 void	big_sort_first_step(t_global *ps);
 void	big_sort_second_step(t_global *ps);
-
+void	bring_top_minimum_push(int op, t_global *ps);
 
 #endif

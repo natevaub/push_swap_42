@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:33:27 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/04 11:11:11 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 00:43:30 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,13 @@ int	is_sorted_a(t_stack **head, int size)
 		if (curr->value > curr->next->value)
 		{
 			sorted = 0;
-			break;
+			break ;
 		}
 		curr = curr->next;
 		i++;
 	}
 	return (sorted);
 }
-
 
 int	is_sorted_b(t_stack **head, int size)
 {

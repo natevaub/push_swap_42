@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:43:55 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/06 18:24:27 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 17:41:59 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,19 @@ int	init_stacks_quote(t_global *ps, const char *arg_str)
 	{
 		if (is_valid_input(args[count]))
 		{
-			free(args);
+			free_ft_split(args);
 			return (-1);
 		}
 		insert_at_head(&ps->stack_a, ft_atoi(args[count]));
 		count--;
 		if (find_duplicate(ps->stack_a))
 		{
-			free(args);
+			free_ft_split(args);
+			deallocate_stack(ps->stack_a);
 			return (-1);
 		}
 	}
-	while (free_index >= 0)
-	{
-		free(args[free_index]);
-		free_index--;
-	}
-	free(args);
+	free_ft_split(args);
 	return (0);
 }
 
@@ -79,17 +75,15 @@ int	init_stacks(t_global *ps, char **av, int ac)
 	return (0);
 }
 
+// make && valgrind --leak-check=full --track-origins=yes ./push_swap
+// python3 tester.py -s -n 3 -t 5 -b ./push_swap
 int	main(int ac, char **av)
 {
-	// make && valgrind --leak-check=full --track-origins=yes ./push_swap
-	// python3 tester.py -s -n 3 -t 5 -b ./push_swap
-	
 	t_global	ps;
 	int			size;
-	int			*arr;					// Array to test my implemetation of stack_to_array
+
 	ps.stack_a = NULL;
 	ps.stack_b = NULL;
-
 	if (init_stacks(&ps, av, ac) == -1)
 		error_msg();
 	size = stack_size(&ps.stack_a);
@@ -103,8 +97,7 @@ int	main(int ac, char **av)
 	{
 		big_sort_first_step(&ps);
 		big_sort_second_step(&ps);
-		// print_stack(&ps);
 	}
-		
+	deallocate_stack(ps.stack_a);
 	return (0);
 }

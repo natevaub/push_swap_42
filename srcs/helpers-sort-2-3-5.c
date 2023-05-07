@@ -6,13 +6,13 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:31:39 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/04/30 00:26:22 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:27:07 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void top_greater_middle(t_global *ps)
+void	top_greater_middle(t_global *ps)
 {
 	if (ps->stack_a->value < ps->stack_a->next->value)
 	{
@@ -26,7 +26,7 @@ void top_greater_middle(t_global *ps)
 	}
 }
 
-void top_less_middle(t_global *ps)
+void	top_less_middle(t_global *ps)
 {
 	if (ps->stack_a->next->value < ps->stack_a->next->next->value)
 	{
@@ -42,11 +42,11 @@ void top_less_middle(t_global *ps)
 	}
 }
 
-void find_min_pb(t_global *ps)
+void	find_min_pb(t_global *ps)
 {
-	int loop;
-	int size;
-	int index;
+	int	loop;
+	int	size;
+	int	index;
 
 	loop = 0;
 	while (loop < 2)
@@ -55,21 +55,31 @@ void find_min_pb(t_global *ps)
 		index = stack_min_index(ps->stack_a);
 		if (index <= size / 2)
 		{
-			while (index)
-			{
-				ra(&ps->stack_a);
-				index--;
-			}
+			ra_low_index(index, ps);
 		}
 		else
 		{
-			while (index <= size - 1)
-			{
-				rra(&ps->stack_a);
-				index++;
-			}
+			ra_high_index(index, size, ps);
 		}
 		pb(ps);
 		loop++;
+	}
+}
+
+void	ra_low_index(int index, t_global *ps)
+{
+	while (index)
+	{
+		ra(&ps->stack_a);
+		index--;
+	}
+}
+
+void	ra_high_index(int index, int size, t_global *ps)
+{
+	while (index <= size - 1)
+	{
+		rra(&ps->stack_a);
+		index++;
 	}
 }

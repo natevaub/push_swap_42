@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:29:48 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/04/30 00:27:41 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:40:19 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort3(t_global *ps)
 {
 	if (is_sorted_a(&ps->stack_a, stack_size(&ps->stack_a)))
-		return;
+		return ;
 	if (ps->stack_a->value < ps->stack_a->next->value)
 		top_greater_middle(ps);
 	else
@@ -25,7 +25,7 @@ void	sort3(t_global *ps)
 void	sort5(t_global *ps)
 {
 	if (is_sorted_a(&ps->stack_a, stack_size(&ps->stack_a)) == 1)
-		return;
+		return ;
 	find_min_pb(ps);
 	sort3(ps);
 	pa(ps);
@@ -35,7 +35,7 @@ void	sort5(t_global *ps)
 void	sort2(t_global *ps)
 {
 	if (is_sorted_a(&ps->stack_a, stack_size(&ps->stack_a)) == 1)
-		return;
+		return ;
 	else
 		sa(&ps->stack_a);
 }
