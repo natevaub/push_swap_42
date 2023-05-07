@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:15:02 by nvaubien          #+#    #+#             */
-/*   Updated: 2022/11/07 15:38:52 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 22:52:00 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {
