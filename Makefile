@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 16:22:07 by nvaubien          #+#    #+#              #
-#    Updated: 2023/05/06 13:22:29 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/05/07 18:49:44 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME					:= push_swap
 
 CC						:= gcc
 
-CFLAGS					:= #-Wall -Wextra -Werror
+CFLAGS					:= -Wall -Wextra -Werror
 
 # BONUS_NAME				:= checker
 

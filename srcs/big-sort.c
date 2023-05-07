@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 16:34:34 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:50:35 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ void	big_sort_initial_push(t_global *ps)
 void	big_sort_first_step(t_global *ps)
 {
 	int		x;
-	int		best_index;
 	t_moves	best_moves;
 	t_moves	curr_moves;
 
 	x = 0;
 	best_moves = (t_moves){1073741823, 1073741823};
-	best_index = -1;
 	big_sort_initial_push(ps);
 	while (stack_size(&ps->stack_a) > 3)
 	{

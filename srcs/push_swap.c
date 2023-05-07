@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:43:55 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 17:41:59 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:50:09 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	init_stacks_quote(t_global *ps, const char *arg_str)
 {
 	char	**args;
 	int		count;
-	int		free_index;
 
 	args = ft_split(arg_str, ' ');
 	count = args_count(args) - 1;
-	free_index = count;
 	while (count >= 0)
 	{
 		if (is_valid_input(args[count]))
