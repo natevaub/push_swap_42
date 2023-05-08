@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 17:37:45 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:21:54 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,10 @@ void	big_sort_initial_push(t_global *ps);
 void	big_sort_first_step(t_global *ps);
 void	big_sort_second_step(t_global *ps);
 void	bring_top_minimum_push(int op, t_global *ps);
+
+/* --- init.c --- */
+int		args_count(char **input);
+int		init_stacks_quote(t_global *ps, const char *arg_str);
+int		init_stacks(t_global *ps, char **av, int ac);
 
 #endif
