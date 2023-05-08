@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:26:40 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/08 16:38:06 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/09 00:01:21 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	read_instructions(t_global *ps, char *instruction)
 
 void	apply_instructions(t_global *ps)
 {
-	print_stack(ps);
 	char	*instruction;
 
 	instruction = get_next_line(0);
