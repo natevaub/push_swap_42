@@ -1,1 +1,5 @@
 push_swap_visualizer
+*.a
+*.o
+push_swap
+checker
