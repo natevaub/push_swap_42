@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:58:45 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 18:50:35 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:23:11 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,13 @@ void	bring_top_minimum_push(int op, t_global *ps)
 {
 	bring_top_minimum_a(op, ps);
 	pa(ps);
+}
+
+void	big_sort(t_global *ps)
+{
+	if (is_sorted_a(&ps->stack_a, stack_size(&ps->stack_a)) == 1)
+		return ;
+	big_sort_initial_push(ps);
+	big_sort_first_step(ps);
+	big_sort_second_step(ps);
 }

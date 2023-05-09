@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:43:55 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/08 15:32:40 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:24:00 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	main(int ac, char **av)
 		sort5(&ps);
 	else
 	{
-		big_sort_first_step(&ps);
-		big_sort_second_step(&ps);
+		big_sort(&ps);
 	}
 	deallocate_stack(ps.stack_a);
 	return (0);
