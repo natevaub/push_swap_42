@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:43:55 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/09 14:24:00 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:37:45 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	main(int ac, char **av)
 	if (init_stacks(&ps, av, ac) == -1)
 		error_msg();
 	size = stack_size(&ps.stack_a);
-	if (size == 1)
-		return (0);
 	if (size == 2)
 		sort2(&ps);
 	else if (size == 3)
