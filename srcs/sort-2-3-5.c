@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:29:48 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 15:40:19 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 22:21:59 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,13 @@ void	sort2(t_global *ps)
 		return ;
 	else
 		sa(&ps->stack_a);
+}
+
+void	sort4(t_global *ps)
+{
+	if (is_sorted_a(&ps->stack_a, stack_size(&ps->stack_a)) == 1)
+		return ;
+	find_min_pb_one(ps);
+	sort3(ps);
+	pa(ps);
 }

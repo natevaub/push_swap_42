@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/12 03:12:16 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 22:22:18 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_compute_helper
 	int	maxa;
 	int	i_mina;
 	int	i_maxa;
-	int tot;
+	int	tot;
 }	t_compute_helper;
 
 /* --- helpers.c --- */
@@ -113,6 +113,7 @@ void	rrr(t_global *ps);
 /* --- push-op.c --- */
 void	pa(t_global *ps);
 void	pb(t_global *ps);
+void	find_min_pb_one(t_global *ps);
 
 /* --- stacks-visualizer.c --- */
 void	print_stack(t_global *ps);
@@ -124,6 +125,7 @@ void	delete_at_head(t_stack **head);
 /* --- sort-2-3-5.c --- */
 void	sort2(t_global *ps);
 void	sort3(t_global *ps);
+void	sort4(t_global *ps);
 void	sort5(t_global *ps);
 
 /* --- helpers-sort-2-3-5.c --- */

@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:43:55 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/09 14:47:01 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 22:21:21 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int ac, char **av)
 		sort2(&ps);
 	else if (size == 3)
 		sort3(&ps);
+	else if (size == 4)
+		sort4(&ps);
 	else if (size == 5)
 		sort5(&ps);
 	else
