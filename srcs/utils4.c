@@ -6,13 +6,13 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 13:21:39 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 15:30:08 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 03:39:31 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c)
+void	magic_helper(int a_idx, int b_idx, t_global *ps, t_compute_helper *c)
 {
 	c->greedy_a = bring_top_minimum_moves_a(a_idx, ps);
 	c->greedy_b = bring_top_minimum_moves_b(b_idx, ps);
@@ -23,20 +23,28 @@ void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c)
 	c->r_rotate_a = -(stack_size(&ps->stack_a) - a_idx);
 	c->r_rotate_b = -(stack_size(&ps->stack_b) - b_idx);
 	c->r_rte_tot = max(iabs(c->r_rotate_a), iabs(c->r_rotate_b));
+}
+
+void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c)
+{
+	magic_helper(a_idx, b_idx, ps, c);
 	if (c->greedy_total <= c->rte_tot && c->greedy_total <= c->r_rte_tot)
 	{
 		c->moves_a = c->greedy_a;
 		c->moves_b = c->greedy_b;
+		c->tot = c->greedy_total;
 	}
 	else if (c->rte_tot <= c->greedy_total && c->rte_tot <= c->r_rte_tot)
 	{
 		c->moves_a = c->rotate_a;
 		c->moves_b = c->rotate_b;
+		c->tot = c->rte_tot;
 	}
 	else
 	{
 		c->moves_a = c->r_rotate_a;
 		c->moves_b = c->r_rotate_b;
+		c->tot = c->r_rte_tot;
 	}
 }
 

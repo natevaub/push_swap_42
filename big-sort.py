@@ -144,20 +144,20 @@ def solve(elems):
     def magic_compute(a_idx, b_idx):
         greedy_a = bring_top_minimum_moves(a_idx, a)
         greedy_b = bring_top_minimum_moves(b_idx, b)
-        greedy_->tot = abs(greedy_a) + abs(greedy_b)
+        greedy_tot = abs(greedy_a) + abs(greedy_b)
 
         rotate_a =  a_idx
         rotate_b =  b_idx
-        rotate_->tot = max(rotate_a, rotate_b)
+        rotate_tot = max(rotate_a, rotate_b)
 
         r_rotate_a =  -(len(a) - a_idx)
         r_rotate_b =  -(len(b) - b_idx)
-        r_rotate_->tot = max(abs(r_rotate_a), abs(r_rotate_b))
+        r_rotate_tot = max(abs(r_rotate_a), abs(r_rotate_b))
 
-        if greedy_->tot <= rotate_->tot and greedy_->tot <= r_rotate_->tot:
+        if greedy_tot <= rotate_tot and greedy_tot <= r_rotate_tot:
             return greedy_a, greedy_b
 
-        if rotate_->tot <= greedy_->tot and rotate_->tot <= r_rotate_->tot:
+        if rotate_tot <= greedy_tot and rotate_tot <= r_rotate_tot:
             return rotate_a, rotate_b
 
         else:
@@ -312,7 +312,7 @@ def solve(elems):
 
 random.seed(7)
 # elems = random.sample(range(0, 1000), k=500)
-elems = [2, 81, 56, 29, 94, 33, 66, 71, 27, 16, 64, 24, 79, 51, 9, 68, 42, 46, 50, 11, 98, 20, 26, 82, 61, 22, 80, 85, 15, 36, 7, 96, 13, 18, 73, 76, 91, 35, 55, 3, 10, 31, 48, 70, 47, 95, 60, 40, 1, 99]
+elems = [7, 19, 11, 3, 14, 2, 6, 13, 16, 18, 8, 17, 9, 20, 10, 12, 1, 15, 4, 5]
 #elems = [65, 204, 149, 668, 672]
 #elems = [567, 655, 60, 484, 858]
 print(elems)

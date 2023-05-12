@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:42:24 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/09 14:23:30 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 03:12:16 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_global {
 typedef struct s_moves {
 	int	a_moves;
 	int	b_moves;
+	int	tot_moves;
 }	t_moves;
 
 typedef struct s_compute_helper
@@ -61,6 +62,7 @@ typedef struct s_compute_helper
 	int	maxa;
 	int	i_mina;
 	int	i_maxa;
+	int tot;
 }	t_compute_helper;
 
 /* --- helpers.c --- */
@@ -149,6 +151,7 @@ int		find_smallest_bigger_than(int number, t_stack *head);
 void	compute_operations(int a_idx, t_global *ps, t_moves *moves);
 
 /* --- utils4.c --- */
+void	magic_helper(int a_idx, int b_idx, t_global *ps, t_compute_helper *c);
 void	magic_compute(int a_idx, int b_idx, t_global *ps, t_compute_helper *c);
 void	magic_bring_top(int a_moves, int b_moves, t_global *ps);
 void	handle_sim_rot(int a, t_global *ps);

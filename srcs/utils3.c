@@ -6,18 +6,18 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:03:23 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/05/07 15:29:18 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:33:58 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_biggest_smaller_than(int number, t_stack *head)
+int find_biggest_smaller_than(int number, t_stack *head)
 {
-	int		i;
-	int		current;
-	int		res;
-	t_stack	*curr;
+	int i;
+	int current;
+	int res;
+	t_stack *curr;
 
 	curr = head;
 	i = 0;
@@ -36,12 +36,12 @@ int	find_biggest_smaller_than(int number, t_stack *head)
 	return (res);
 }
 
-int	find_smallest_bigger_than(int number, t_stack *head)
+int find_smallest_bigger_than(int number, t_stack *head)
 {
-	int		i;
-	int		current;
-	int		res;
-	t_stack	*curr;
+	int i;
+	int current;
+	int res;
+	t_stack *curr;
 
 	curr = head;
 	i = 0;
@@ -60,12 +60,12 @@ int	find_smallest_bigger_than(int number, t_stack *head)
 	return (res);
 }
 
-void	compute_operations(int a_idx, t_global *ps, t_moves *moves)
+void compute_operations(int a_idx, t_global *ps, t_moves *moves)
 {
-	t_compute_helper	c;
-	int					a_elem;
-	int					b_index;
-	int					i;
+	t_compute_helper c;
+	int a_elem;
+	int b_index;
+	int i;
 
 	c.minb = stack_min_value(ps->stack_b);
 	c.maxb = stack_max_value(ps->stack_b);
@@ -76,6 +76,7 @@ void	compute_operations(int a_idx, t_global *ps, t_moves *moves)
 		magic_compute(a_idx, b_index, ps, &c);
 		moves->a_moves = c.moves_a;
 		moves->b_moves = c.moves_b;
+		moves->tot_moves = c.tot;
 	}
 	else
 	{
@@ -84,5 +85,6 @@ void	compute_operations(int a_idx, t_global *ps, t_moves *moves)
 		magic_compute(a_idx, i, ps, &c);
 		moves->a_moves = c.moves_a;
 		moves->b_moves = c.moves_b;
+		moves->tot_moves = c.tot;
 	}
 }
